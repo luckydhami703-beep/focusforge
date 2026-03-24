@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Dhami</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Productivity OS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Lucky Dhami</h1>
-    <p>Frontend Developer | DSA Enthusiast</p>
-</header>
+<div class="layout">
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am an IT student passionate about web development and problem solving.</p>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>⚡ ProdOS</h2>
     <ul>
-        <li>CodeTrack - Coding Tracker</li>
-        <li>Smart Blood Monitoring System</li>
+      <li class="active">Dashboard</li>
+      <li>Tasks</li>
+      <li>Notes</li>
+      <li>Analytics</li>
     </ul>
-</section>
+  </aside>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <button onclick="showMessage()">Say Hello</button>
-</section>
+  <!-- Main -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h1>Dashboard</h1>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Tasks</h3>
+        <p id="totalTasks">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Completed</h3>
+        <p id="completedTasks">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Streak</h3>
+        <p>5 🔥</p>
+      </div>
+    </div>
+
+    <!-- Task Box -->
+    <div class="task-box">
+      <h2>Manage Tasks</h2>
+
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <button onclick="addTask()">Add</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
+
+  </div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
