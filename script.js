@@ -1,40 +1,51 @@
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-function addTask() {
-  const input = document.getElementById("taskInput");
-  const taskText = input.value;
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
-  if (taskText === "") return;
-
-  const task = {
-    text: taskText,
-    completed: false
-  };
-
-  tasks.push(task);
-  input.value = "";
-
-  renderTasks();
+function updateStats() {
+  document.getElementById("totalTasks").textContent = tasks.length;
+  document.getElementById("completedTasks").textContent = tasks.filter(task => task.completed).length;
 }
 
 function renderTasks() {
-  const list = document.getElementById("taskList");
-  list.innerHTML = "";
+  const taskList = document.getElementById("taskList");
+  taskList.innerHTML = "";
 
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
+    if (task.completed) li.classList.add("completed");
 
     li.innerHTML = `
-      <span onclick="toggleTask(${index})" class="${task.completed ? 'completed' : ''}">
-        ${task.text}
-      </span>
-      <button onclick="deleteTask(${index})">X</button>
+      <span>${task.text}</span>
+      <div class="task-actions">
+        <button class="complete-btn" onclick="toggleTask(${index})">✔</button>
+        <button class="edit-btn" onclick="editTask(${index})">✏</button>
+        <button class="delete-btn" onclick="deleteTask(${index})">🗑</button>
+      </div>
     `;
 
-    list.appendChild(li);
+    taskList.appendChild(li);
   });
 
   updateStats();
+  saveTasks();
+}
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const taskText = input.value.trim();
+
+  if (taskText === "") return;
+
+  tasks.push({
+    text: taskText,
+    completed: false
+  });
+
+  input.value = "";
+  renderTasks();
 }
 
 function toggleTask(index) {
@@ -47,8 +58,12 @@ function deleteTask(index) {
   renderTasks();
 }
 
-function updateStats() {
-  document.getElementById("totalTasks").innerText = tasks.length;
-  document.getElementById("completedTasks").innerText =
-    tasks.filter(t => t.completed).length;
+function editTask(index) {
+  const newTask = prompt("Edit your task:", tasks[index].text);
+  if (newTask !== null && newTask.trim() !== "") {
+    tasks[index].text = newTask.trim();
+    renderTasks();
+  }
 }
+
+renderTasks();

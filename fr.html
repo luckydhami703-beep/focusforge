@@ -51,9 +51,9 @@
       <h2>Manage Tasks</h2>
 
       <div class="input-group">
-        <input type="text" id="taskInput" placeholder="Enter task...">
-        <button onclick="addTask()">Add</button>
-      </div>
+  <input type="text" id="taskInput" placeholder="Enter task..." onkeypress="if(event.key==='Enter') addTask()">
+  <button onclick="addTask()">Add</button>
+</div>
 
       <ul id="taskList"></ul>
     </div>
