@@ -4,47 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FocusForge</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style1.css" />
 </head>
 <body>
   <div class="app">
-    <div class="container">
-      <header>
-        <div>
-          <h1>⚡ FocusForge</h1>
-          <p>Turn your productivity into a game.</p>
-        </div>
+    <aside class="sidebar">
+      <h1>⚡ FocusForge</h1>
+      <p>Stay focused. Stay consistent.</p>
+
+      <div class="sidebar-card">
+        <h3>Level</h3>
+        <p id="level">1</p>
+        <span id="xpText">XP: 0 / 100</span>
+        <div class="bar"><div id="xpFill"></div></div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Streak</h3>
+        <p id="streak">0 🔥</p>
+        <span>Build consistency daily</span>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Today's Quote</h3>
+        <p id="quote">Small progress is still progress.</p>
+        <button id="newQuote">Refresh Quote</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <h2>Today's Tasks</h2>
         <button id="themeToggle">🌙</button>
-      </header>
+      </div>
 
-      <section class="top-grid">
-        <div class="card level-card">
-          <h2>Level</h2>
-          <p id="level">1</p>
-          <span id="xpText">XP: 0 / 100</span>
-          <div class="xp-bar">
-            <div id="xpFill"></div>
-          </div>
-        </div>
-
-        <div class="card streak-card">
-          <h2>Streak</h2>
-          <p id="streak">0 🔥</p>
-          <span>Keep showing up daily</span>
-        </div>
-
-        <div class="card quote-card">
-          <h2>Today's Quote</h2>
-          <p id="quote">Small progress is still progress.</p>
-          <button id="newQuote">New Quote</button>
-        </div>
-      </section>
-
-      <section class="task-section card">
-        <h2>Today's Missions</h2>
+      <section class="task-panel">
         <div class="task-input-box">
-          <input type="text" id="taskInput" placeholder="Add a mission..." />
-          <button id="addTaskBtn">Add</button>
+          <input type="text" id="taskInput" placeholder="Add a new task..." />
+          <button id="addTaskBtn">Add Task</button>
         </div>
 
         <div class="filters">
@@ -56,26 +53,22 @@
         <ul id="taskList"></ul>
       </section>
 
-      <section class="bottom-grid">
-        <div class="card progress-card">
-          <h2>Progress</h2>
+      <section class="bottom-cards">
+        <div class="info-card">
+          <h3>Progress</h3>
           <p><span id="doneCount">0</span> / <span id="totalCount">0</span> tasks completed</p>
-          <div class="progress-bar">
-            <div id="progressFill"></div>
-          </div>
+          <div class="bar"><div id="progressFill"></div></div>
           <span id="progressPercent">0%</span>
         </div>
 
-        <div class="card rewards-card">
-          <h2>Rewards</h2>
-          <p id="rewardText">Complete tasks to unlock your momentum 🚀</p>
+        <div class="info-card">
+          <h3>Momentum</h3>
+          <p id="rewardText">Complete tasks to build your flow.</p>
         </div>
       </section>
-    </div>
+    </main>
   </div>
 
-  <canvas id="confettiCanvas"></canvas>
-
-  <script src="script.js"></script>
+  <script src="script1.js"></script>
 </body>
 </html>
