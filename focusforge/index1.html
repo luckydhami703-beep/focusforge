@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusForge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="container">
+      <header>
+        <div>
+          <h1>⚡ FocusForge</h1>
+          <p>Turn your productivity into a game.</p>
+        </div>
+        <button id="themeToggle">🌙</button>
+      </header>
+
+      <section class="top-grid">
+        <div class="card level-card">
+          <h2>Level</h2>
+          <p id="level">1</p>
+          <span id="xpText">XP: 0 / 100</span>
+          <div class="xp-bar">
+            <div id="xpFill"></div>
+          </div>
+        </div>
+
+        <div class="card streak-card">
+          <h2>Streak</h2>
+          <p id="streak">0 🔥</p>
+          <span>Keep showing up daily</span>
+        </div>
+
+        <div class="card quote-card">
+          <h2>Today's Quote</h2>
+          <p id="quote">Small progress is still progress.</p>
+          <button id="newQuote">New Quote</button>
+        </div>
+      </section>
+
+      <section class="task-section card">
+        <h2>Today's Missions</h2>
+        <div class="task-input-box">
+          <input type="text" id="taskInput" placeholder="Add a mission..." />
+          <button id="addTaskBtn">Add</button>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="taskList"></ul>
+      </section>
+
+      <section class="bottom-grid">
+        <div class="card progress-card">
+          <h2>Progress</h2>
+          <p><span id="doneCount">0</span> / <span id="totalCount">0</span> tasks completed</p>
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+          <span id="progressPercent">0%</span>
+        </div>
+
+        <div class="card rewards-card">
+          <h2>Rewards</h2>
+          <p id="rewardText">Complete tasks to unlock your momentum 🚀</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
